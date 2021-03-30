@@ -1,4 +1,5 @@
-main()
+#include<stdio.h>
+int main()
 {
 char str[100],ch;
 int i,count=0;
