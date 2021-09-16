@@ -22,7 +22,7 @@ void main()
 	   printf("%5d",a1[i]);
 	for(i=n;i>=p;i--)
 	   a1[i]=a1[i-1];
- 
+ 	n++;
 	a1[p-1]=x;
 	printf("\n\n insert the new element in the new list:\n");
 	for(i=0;i<=n;i++)
