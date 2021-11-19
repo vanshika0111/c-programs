@@ -1,3 +1,5 @@
+// program to convert temperature from c to f
+
 #include <stdio.h>
 int main()
 {
