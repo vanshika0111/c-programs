@@ -1,5 +1,6 @@
 // -------------------------------------- header files -----------------------
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX 5
 
 // -------------------------------------- global declarations -----------------------
@@ -10,25 +11,18 @@ void list(void)
 {
     printf("1. Circular right shift \n");
     printf("2. Circular left shift \n");
-    printf("3.Exit \n");
+    printf("3. Exit \n");
     printf("Enter your choice: ");
     scanf("%d", &choice);
 }
 
 void arr(void)
 {
-    int rotation;
-    // printf("Enter the MAX of array: ");
-    // scanf("%d",  MAX);
-    // printf("\n");
-    // int array MAX];
     printf("Enter the elements of array: \n");
     for (i = 0; i < MAX; i++)
     {
         scanf("%d", &array[i]);
     }
-    printf("Enter the number of rotations: ");
-    scanf("%d", &rotation);
 }
 
 void Display(void)
@@ -43,22 +37,32 @@ void Display(void)
 
 void CRS(void)
 {
-    printf("crs \n");
+    // printf("\n circular right shift: 12345 --> 51234 \n");
+    int temp = array[MAX - 1];
+    for (int i = MAX - 1; i >= 0; i--)
+    {
+        if (i == 0)
+        {
+            break;
+        }
+        array[i] = array[i - 1];
+    }
+    array[0] = temp;
 }
 
 void CLS(void)
 {
-    printf("\n cls \n");
-    for (i = 0; i < MAX; i++)
+    // printf("\n circular left shift: 12345 --> 23451 \n");
+    int temp = array[0];
+    for (int i = 0; i < MAX - 1; i++)
     {
-        int j, temp;
-        temp = array[MAX - 1];
-        for (j = MAX - 1; j > 0; j--)
+        if (i == MAX - 1)
         {
-            array[j] = array[j - 1];
+            break;
         }
-        array[0] = temp;
+        array[i] = array[i + 1];
     }
+    array[MAX - 1] = temp;
 }
 
 // -------------------------------------- main function -----------------------
@@ -73,18 +77,18 @@ int main()
         {
         case 1:
             arr();
-            printf("Array before performing shitf: \n");
+            printf("Array before performing shift: \n");
             Display();
             CRS();
-            printf("Array after performing shitf: \n");
+            printf("Array after performing shift: \n");
             Display();
             break;
         case 2:
             arr();
-            printf("Array before performing shitf: \n");
+            printf("Array before performing shift: \n");
             Display();
             CLS();
-            printf("Array after performing shitf: \n");
+            printf("Array after performing shift: \n");
             Display();
             break;
         case 3:
